@@ -1,0 +1,38 @@
+[
+  {
+    "slug": "dynamic",
+    "title": "Dynamic",
+    "category": "Web Design",
+    "image": "proj-1.jpg"
+  },
+  {
+    "slug": "diesel-h1",
+    "title": "Diesel H1",
+    "category": "Photography",
+    "image": "proj-2.jpg"
+  },
+  {
+    "slug": "seven-studio",
+    "title": "Seven Studio",
+    "category": "Mobile Design",
+    "image": "proj-3.jpg"
+  },
+  {
+    "slug": "raven-studio",
+    "title": "Raven Studio",
+    "category": "Branding",
+    "image": "proj-4.jpg"
+  },
+  {
+    "slug": "submarine",
+    "title": "Submarine",
+    "category": "Mobile Design",
+    "image": "proj-5.jpg"
+  },
+  {
+    "slug": "hydra-merc",
+    "title": "Hydra Merc",
+    "category": "Web Design",
+    "image": "proj-6.jpg"
+  }
+]
