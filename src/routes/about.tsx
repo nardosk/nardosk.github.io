@@ -23,7 +23,7 @@ export const Route = createFileRoute("/about")({
 
 const experience = [
   {
-    year: "2020 — 2023",
+    year: "2020 — Now",
     role: "Senior Software Engineer",
     where: "NYLOS Software",
   },

@@ -6,10 +6,30 @@
 // You can pass additional config via defineConfig({ vite: { ... } }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
-// Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
-// @cloudflare/vite-plugin builds from this — wrangler.jsonc main alone is insufficient.
+// Two build targets share this config:
+//   - default (workers): wraps the Cloudflare plugin and uses src/server.ts as the worker
+//     entry, producing dist/server/index.js for `wrangler deploy`.
+//   - BUILD_TARGET=pages: disables the Cloudflare plugin and enables TanStack Start's
+//     prerender so dist/client/ contains static HTML for every reachable route. Used by
+//     the GitHub Pages workflow.
+const isPagesBuild = process.env.BUILD_TARGET === "pages";
+
 export default defineConfig({
-  tanstackStart: {
-    server: { entry: "server" },
-  },
+  cloudflare: isPagesBuild ? false : undefined,
+  tanstackStart: isPagesBuild
+    ? {
+        prerender: {
+          enabled: true,
+          crawlLinks: true,
+          autoSubfolderIndex: true,
+        },
+        pages: [
+          { path: "/" },
+          { path: "/about" },
+          { path: "/contact" },
+        ],
+      }
+    : {
+        server: { entry: "server" },
+      },
 });
