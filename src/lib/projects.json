@@ -1,38 +1,99 @@
 [
   {
-    "slug": "dynamic",
-    "title": "Dynamic",
-    "category": "Web Design",
-    "image": "proj-1.jpg"
+    "slug": "nylos-erp",
+    "title": "NYLOS ERP",
+    "category": "Enterprise · ERP",
+    "year": "2024",
+    "image": "nylos-erp.svg",
+    "summary": "One source of truth for mid-sized companies — ten-plus workspaces, shared books.",
+    "description": "A modular enterprise resource planning suite built for mid-sized Ethiopian businesses. Inventory, sales, purchasing, finance, HR and more sit on a single ledger so every team works from the same numbers.",
+    "highlights": [
+      "Inventory & warehousing",
+      "Sales & purchasing",
+      "Finance & general ledger",
+      "Human resources & payroll",
+      "Customer relationship",
+      "Project management",
+      "Manufacturing",
+      "Service & maintenance",
+      "Reports & analytics",
+      "Multi-company / multi-currency"
+    ]
   },
   {
-    "slug": "diesel-h1",
-    "title": "Diesel H1",
-    "category": "Photography",
-    "image": "proj-2.jpg"
+    "slug": "shareholder-management",
+    "title": "Shareholder Management",
+    "category": "Fintech · Equity",
+    "year": "2023",
+    "image": "shareholder.svg",
+    "summary": "A registrar for closely-held companies — certificates, transfers and dividends, one place.",
+    "description": "A modern registrar for private companies. It keeps the share register tidy, records transfers and corporate actions, runs dividend declarations, and gives shareholders a quiet portal to see their holdings.",
+    "highlights": [
+      "Share register & certificates",
+      "Transfers & corporate actions",
+      "Dividend declarations and payouts",
+      "Shareholder portal"
+    ]
   },
   {
-    "slug": "seven-studio",
-    "title": "Seven Studio",
-    "category": "Mobile Design",
-    "image": "proj-3.jpg"
+    "slug": "finance-accounting",
+    "title": "Finance & Accounting",
+    "category": "Fintech · Accounting",
+    "year": "2022",
+    "image": "finance.svg",
+    "summary": "Double-entry, tuned for Ethiopian compliance — journals, VAT, payroll, statements.",
+    "description": "A general ledger built around the local reality: configurable chart of accounts, multi-currency journals, VAT and withholding tax, payroll, and statutory reports that map cleanly to filings.",
+    "highlights": [
+      "Customisable chart of accounts",
+      "Multi-currency journals",
+      "VAT & withholding tax",
+      "Payroll & statutory filings",
+      "Real-time financial statements"
+    ]
   },
   {
-    "slug": "raven-studio",
-    "title": "Raven Studio",
-    "category": "Branding",
-    "image": "proj-4.jpg"
+    "slug": "service-maintenance",
+    "title": "Service & Maintenance",
+    "category": "SaaS · Operations",
+    "year": "2022",
+    "image": "service.svg",
+    "summary": "Workshop floor in software — job cards, parts, mechanics and invoices.",
+    "description": "A workshop management tool for garages and service centres. Job cards travel with the vehicle, parts are tracked from shelf to bill, mechanics see their day, and the office prints invoices without leaving the screen.",
+    "highlights": [
+      "Job cards & repair history",
+      "Spare parts inventory",
+      "Mechanic scheduling",
+      "Customer invoicing"
+    ]
   },
   {
-    "slug": "submarine",
-    "title": "Submarine",
-    "category": "Mobile Design",
-    "image": "proj-5.jpg"
+    "slug": "restaurant-reservation",
+    "title": "Restaurant & Reservation",
+    "category": "Hospitality · Web",
+    "year": "2021",
+    "image": "restaurant.svg",
+    "summary": "A restaurant micro-site with menu, reservations and a kitchen-side dashboard.",
+    "description": "A small website that earns its keep: an editorial menu, an online reservation flow, SMS confirmations, and a back-of-house dashboard showing the day's covers and notes.",
+    "highlights": [
+      "Public site with menu and gallery",
+      "Online table reservations",
+      "Daily cover dashboard",
+      "SMS confirmations"
+    ]
   },
   {
-    "slug": "hydra-merc",
-    "title": "Hydra Merc",
-    "category": "Web Design",
-    "image": "proj-6.jpg"
+    "slug": "nylos-software",
+    "title": "NYLOS Software",
+    "category": "Company · Founded 2023",
+    "year": "2023",
+    "image": "nylos-software.svg",
+    "summary": "Founded NYLOS — a small Addis Ababa studio building enterprise tools for Ethiopian SMEs.",
+    "description": "A small software studio I founded in 2023 to build enterprise tools for Ethiopian companies. The flagship is NYLOS ERP; the broader practice covers finance, equity, operations and hospitality systems.",
+    "highlights": [
+      "Founder & senior engineer",
+      "Builds enterprise software for Ethiopian SMEs",
+      "Flagship product: NYLOS ERP",
+      "Team based in Addis Ababa"
+    ]
   }
 ]

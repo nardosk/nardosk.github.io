@@ -6,7 +6,9 @@ export type Project = {
   category: string;
   cover: string;
   year?: string;
+  summary?: string;
   description?: string;
+  highlights?: string[];
   href?: string;
 };
 
@@ -16,11 +18,13 @@ type RawProject = {
   category: string;
   image: string;
   year?: string;
+  summary?: string;
   description?: string;
+  highlights?: string[];
   href?: string;
 };
 
-const coverModules = import.meta.glob("../assets/*.{jpg,jpeg,png,webp}", {
+const coverModules = import.meta.glob("../assets/*.{jpg,jpeg,png,webp,svg}", {
   eager: true,
   import: "default",
 }) as Record<string, string>;

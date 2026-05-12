@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1280" preserveAspectRatio="xMidYMid slice" role="img" aria-label="NYLOS Software cover">
+  <rect width="1024" height="1280" fill="#b8b5c0"/>
+  <g fill="#14141c" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="64" y="100" font-size="22" letter-spacing="4">06 — COMPANY</text>
+    <text x="960" y="100" text-anchor="end" font-size="22" letter-spacing="4" opacity="0.6">2023</text>
+  </g>
+  <g fill="#14141c">
+    <text x="512" y="640" text-anchor="middle" font-family="Georgia, Cambria, 'Times New Roman', serif" font-style="italic" font-size="36" opacity="0.55" letter-spacing="2">Founded in Addis Ababa</text>
+    <text x="512" y="780" text-anchor="middle" font-family="Georgia, Cambria, 'Times New Roman', serif" font-size="200" letter-spacing="6">NYLOS</text>
+  </g>
+  <g fill="#14141c" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <line x1="64" y1="1140" x2="160" y2="1140" stroke="#14141c" stroke-width="1" opacity="0.4"/>
+    <text x="64" y="1180" font-size="20" letter-spacing="3" opacity="0.7">SOFTWARE STUDIO</text>
+    <text x="64" y="1230" font-size="20" letter-spacing="3">EST. MMXXIII</text>
+  </g>
+</svg>

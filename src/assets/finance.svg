@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1280" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Finance & Accounting cover">
+  <rect width="1024" height="1280" fill="#bcc8b6"/>
+  <g fill="#162018" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="64" y="100" font-size="22" letter-spacing="4">03 — FINTECH</text>
+    <text x="960" y="100" text-anchor="end" font-size="22" letter-spacing="4" opacity="0.6">2022</text>
+  </g>
+  <g fill="#162018" font-family="Georgia, Cambria, 'Times New Roman', serif" font-style="italic">
+    <text x="512" y="620" text-anchor="middle" font-size="170" letter-spacing="-3">Finance</text>
+    <text x="512" y="800" text-anchor="middle" font-size="86" letter-spacing="2" opacity="0.55">&amp; Accounting</text>
+  </g>
+  <g fill="#162018" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <line x1="64" y1="1140" x2="160" y2="1140" stroke="#162018" stroke-width="1" opacity="0.4"/>
+    <text x="64" y="1180" font-size="20" letter-spacing="3" opacity="0.7">LEDGER · COMPLIANCE</text>
+    <text x="64" y="1230" font-size="20" letter-spacing="3">NYLOS</text>
+  </g>
+</svg>

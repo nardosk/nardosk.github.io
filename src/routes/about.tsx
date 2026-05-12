@@ -48,12 +48,12 @@ const education = [
 ];
 
 const stats = [
-  { value: "7+", label: "Years of experience" },
-  { value: "500+", label: "Clients served" },
+  { value: "8+", label: "Years of experience" },
+  { value: "50+", label: "Clients served" },
   { value: "30+", label: "Projects shipped" },
 ];
 
-const interests = ["Finance", "AI", "Art", "Code"];
+const interests = ["Finance", "AI", "Art", "Code", "Coffee", "Chess"];
 
 function AboutPage() {
   return (

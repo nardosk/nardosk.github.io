@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1280" preserveAspectRatio="xMidYMid slice" role="img" aria-label="NYLOS ERP cover">
+  <rect width="1024" height="1280" fill="#e0d2b8"/>
+  <g fill="#1c1410" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="64" y="100" font-size="22" letter-spacing="4">01 — ENTERPRISE</text>
+    <text x="960" y="100" text-anchor="end" font-size="22" letter-spacing="4" opacity="0.6">2024</text>
+  </g>
+  <text x="512" y="640" text-anchor="middle" fill="#1c1410" font-family="Georgia, Cambria, 'Times New Roman', serif" font-style="italic" font-size="220" letter-spacing="-4">ERP</text>
+  <g fill="#1c1410" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <line x1="64" y1="1140" x2="160" y2="1140" stroke="#1c1410" stroke-width="1" opacity="0.4"/>
+    <text x="64" y="1180" font-size="20" letter-spacing="3" opacity="0.7">10+ MODULES</text>
+    <text x="64" y="1230" font-size="20" letter-spacing="3">NYLOS</text>
+  </g>
+</svg>
