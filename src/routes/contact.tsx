@@ -39,6 +39,7 @@ type FormValues = z.infer<typeof schema>;
 const socials = [
   { label: "LinkedIn", handle: "@nardosk", href: "https://www.linkedin.com/in/nardosk/" },
   { label: "GitHub", handle: "@nardosk", href: "https://github.com/nardosk/" },
+  { label: "X", handle: "@eaglopia", href: "https://x.com/eaglopia" },
   { label: "Telegram", handle: "@eaglopia", href: "https://t.me/eaglopia" },
   { label: "Instagram", handle: "@eaglopia", href: "https://www.instagram.com/eaglopia/" },
 ];
