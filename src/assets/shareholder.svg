@@ -1,16 +1,44 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1280" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Shareholder Management cover">
+  <defs>
+    <pattern id="sh-tibeb" x="0" y="0" width="32" height="16" patternUnits="userSpaceOnUse">
+      <polygon points="0,16 16,0 32,16" fill="#1c1414" opacity="0.5"/>
+    </pattern>
+  </defs>
   <rect width="1024" height="1280" fill="#cdb6b6"/>
+
+  <!-- Top tibeb -->
+  <line x1="0" y1="138" x2="1024" y2="138" stroke="#1c1414" stroke-width="1" opacity="0.55"/>
+  <rect x="0" y="140" width="1024" height="16" fill="url(#sh-tibeb)"/>
+  <line x1="0" y1="158" x2="1024" y2="158" stroke="#1c1414" stroke-width="1" opacity="0.55"/>
+
+  <!-- Eyebrows -->
   <g fill="#1c1414" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
     <text x="64" y="100" font-size="22" letter-spacing="4">02 — FINTECH</text>
     <text x="960" y="100" text-anchor="end" font-size="22" letter-spacing="4" opacity="0.6">2023</text>
   </g>
-  <g fill="#1c1414" font-family="Georgia, Cambria, 'Times New Roman', serif" font-style="italic">
-    <text x="512" y="620" text-anchor="middle" font-size="150" letter-spacing="-3">Shareholder</text>
-    <text x="512" y="780" text-anchor="middle" font-size="78" letter-spacing="2" opacity="0.6">Management</text>
+
+  <!-- Concentric diamonds (layered shareholders) — centered at 512, 580 -->
+  <g transform="translate(512 580)" stroke="#1c1414" fill="none">
+    <polygon points="0,-220 220,0 0,220 -220,0" stroke-width="1.4" opacity="0.45"/>
+    <polygon points="0,-170 170,0 0,170 -170,0" stroke-width="1.4" opacity="0.6"/>
+    <polygon points="0,-120 120,0 0,120 -120,0" stroke-width="1.4" opacity="0.75"/>
+    <polygon points="0,-70 70,0 0,70 -70,0" stroke-width="1.6" fill="#1c1414" fill-opacity="0.85"/>
   </g>
+
+  <!-- Title -->
+  <g fill="#1c1414" font-family="Georgia, Cambria, 'Times New Roman', serif" font-style="italic">
+    <text x="512" y="920" text-anchor="middle" font-size="120" letter-spacing="-3">Shareholder</text>
+    <text x="512" y="1010" text-anchor="middle" font-size="60" letter-spacing="1" opacity="0.6">Management</text>
+  </g>
+
+  <!-- Bottom tibeb -->
+  <line x1="0" y1="1098" x2="1024" y2="1098" stroke="#1c1414" stroke-width="1" opacity="0.55"/>
+  <rect x="0" y="1100" width="1024" height="16" fill="url(#sh-tibeb)"/>
+  <line x1="0" y1="1118" x2="1024" y2="1118" stroke="#1c1414" stroke-width="1" opacity="0.55"/>
+
+  <!-- Footer eyebrows -->
   <g fill="#1c1414" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
-    <line x1="64" y1="1140" x2="160" y2="1140" stroke="#1c1414" stroke-width="1" opacity="0.4"/>
-    <text x="64" y="1180" font-size="20" letter-spacing="3" opacity="0.7">EQUITY · REGISTRAR</text>
-    <text x="64" y="1230" font-size="20" letter-spacing="3">NYLOS</text>
+    <text x="64" y="1190" font-size="20" letter-spacing="3" opacity="0.7">NYLOS</text>
+    <text x="960" y="1190" text-anchor="end" font-size="20" letter-spacing="3" opacity="0.7">EQUITY&#160;·&#160;REGISTRAR</text>
   </g>
 </svg>

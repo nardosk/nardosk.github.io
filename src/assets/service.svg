@@ -1,16 +1,61 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1280" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Service & Maintenance cover">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1280" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Service and Maintenance cover">
+  <defs>
+    <pattern id="sv-tibeb" x="0" y="0" width="32" height="16" patternUnits="userSpaceOnUse">
+      <polygon points="0,16 16,0 32,16" fill="#221410" opacity="0.55"/>
+    </pattern>
+  </defs>
   <rect width="1024" height="1280" fill="#d6a994"/>
+
+  <!-- Top tibeb -->
+  <line x1="0" y1="138" x2="1024" y2="138" stroke="#221410" stroke-width="1" opacity="0.55"/>
+  <rect x="0" y="140" width="1024" height="16" fill="url(#sv-tibeb)"/>
+  <line x1="0" y1="158" x2="1024" y2="158" stroke="#221410" stroke-width="1" opacity="0.55"/>
+
+  <!-- Eyebrows -->
   <g fill="#221410" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
     <text x="64" y="100" font-size="22" letter-spacing="4">04 — OPERATIONS</text>
     <text x="960" y="100" text-anchor="end" font-size="22" letter-spacing="4" opacity="0.6">2022</text>
   </g>
+
+  <!-- Title -->
   <g fill="#221410" font-family="Georgia, Cambria, 'Times New Roman', serif" font-style="italic">
-    <text x="512" y="620" text-anchor="middle" font-size="170" letter-spacing="-3">Service</text>
-    <text x="512" y="800" text-anchor="middle" font-size="86" letter-spacing="2" opacity="0.55">&amp; Maintenance</text>
+    <text x="512" y="580" text-anchor="middle" font-size="170" letter-spacing="-3">Service</text>
+    <text x="512" y="740" text-anchor="middle" font-size="84" letter-spacing="1" opacity="0.6">&amp; Maintenance</text>
   </g>
+
+  <!-- Decorative chevron tibeb (three-row sheba pattern) — beneath the title -->
+  <g stroke="#221410" fill="none" opacity="0.85">
+    <!-- Outer rules -->
+    <line x1="120" y1="850" x2="904" y2="850" stroke-width="1" opacity="0.55"/>
+    <line x1="120" y1="990" x2="904" y2="990" stroke-width="1" opacity="0.55"/>
+    <!-- Row 1: zigzag down -->
+    <polyline points="120,860 156,895 192,860 228,895 264,860 300,895 336,860 372,895 408,860 444,895 480,860 516,895 552,860 588,895 624,860 660,895 696,860 732,895 768,860 804,895 840,860 876,895 904,870" stroke-width="2"/>
+    <!-- Row 2: solid triangles -->
+    <g fill="#221410" stroke="none" opacity="0.85">
+      <polygon points="140,915 165,945 190,915"/>
+      <polygon points="210,915 235,945 260,915"/>
+      <polygon points="280,915 305,945 330,915"/>
+      <polygon points="350,915 375,945 400,915"/>
+      <polygon points="420,915 445,945 470,915"/>
+      <polygon points="490,915 515,945 540,915"/>
+      <polygon points="560,915 585,945 610,915"/>
+      <polygon points="630,915 655,945 680,915"/>
+      <polygon points="700,915 725,945 750,915"/>
+      <polygon points="770,915 795,945 820,915"/>
+      <polygon points="840,915 865,945 890,915"/>
+    </g>
+    <!-- Row 3: inverted zigzag -->
+    <polyline points="120,980 156,945 192,980 228,945 264,980 300,945 336,980 372,945 408,980 444,945 480,980 516,945 552,980 588,945 624,980 660,945 696,980 732,945 768,980 804,945 840,980 876,945 904,970" stroke-width="2"/>
+  </g>
+
+  <!-- Bottom tibeb -->
+  <line x1="0" y1="1098" x2="1024" y2="1098" stroke="#221410" stroke-width="1" opacity="0.55"/>
+  <rect x="0" y="1100" width="1024" height="16" fill="url(#sv-tibeb)"/>
+  <line x1="0" y1="1118" x2="1024" y2="1118" stroke="#221410" stroke-width="1" opacity="0.55"/>
+
+  <!-- Footer eyebrows -->
   <g fill="#221410" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
-    <line x1="64" y1="1140" x2="160" y2="1140" stroke="#221410" stroke-width="1" opacity="0.4"/>
-    <text x="64" y="1180" font-size="20" letter-spacing="3" opacity="0.7">GARAGES · WORKSHOPS</text>
-    <text x="64" y="1230" font-size="20" letter-spacing="3">NYLOS</text>
+    <text x="64" y="1190" font-size="20" letter-spacing="3" opacity="0.7">NYLOS</text>
+    <text x="960" y="1190" text-anchor="end" font-size="20" letter-spacing="3" opacity="0.7">GARAGES&#160;·&#160;WORKSHOPS</text>
   </g>
 </svg>
