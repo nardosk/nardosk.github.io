@@ -50,7 +50,7 @@ const education = [
 const stats = [
   { value: "8+", label: "Years of experience" },
   { value: "50+", label: "Clients served" },
-  { value: "30+", label: "Projects shipped" },
+  { value: "30+", label: "Projects delivered" },
 ];
 
 const interests = ["Finance", "AI", "Art", "Code", "Coffee", "Chess"];
