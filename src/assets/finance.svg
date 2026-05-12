@@ -1,58 +1,54 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1280" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Finance and Accounting cover">
-  <defs>
-    <pattern id="fin-tibeb-h" x="0" y="0" width="32" height="16" patternUnits="userSpaceOnUse">
-      <polygon points="0,16 16,0 32,16" fill="#162018" opacity="0.55"/>
-    </pattern>
-    <!-- Vertical tibeb stripe for the left edge — diamond chain -->
-    <pattern id="fin-tibeb-v" x="0" y="0" width="40" height="80" patternUnits="userSpaceOnUse">
-      <polygon points="20,8 36,40 20,72 4,40" fill="none" stroke="#162018" stroke-width="1.4" opacity="0.7"/>
-      <circle cx="20" cy="40" r="3" fill="#162018" opacity="0.7"/>
-    </pattern>
-  </defs>
-  <rect width="1024" height="1280" fill="#bcc8b6"/>
+  <rect width="1024" height="1280" fill="#b8c4b0"/>
 
-  <!-- Top tibeb -->
-  <line x1="0" y1="138" x2="1024" y2="138" stroke="#162018" stroke-width="1" opacity="0.55"/>
-  <rect x="0" y="140" width="1024" height="16" fill="url(#fin-tibeb-h)"/>
-  <line x1="0" y1="158" x2="1024" y2="158" stroke="#162018" stroke-width="1" opacity="0.55"/>
+  <!-- Inset frame -->
+  <rect x="64" y="64" width="896" height="1152" fill="none" stroke="#142019" stroke-width="1" opacity="0.25"/>
 
-  <!-- Eyebrows -->
-  <g fill="#162018" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
-    <text x="64" y="100" font-size="22" letter-spacing="4">03 — FINTECH</text>
-    <text x="960" y="100" text-anchor="end" font-size="22" letter-spacing="4" opacity="0.6">2022</text>
+  <!-- Top eyebrow -->
+  <g fill="#142019" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="104" y="124" font-size="20" letter-spacing="4">03 — FINTECH</text>
+    <text x="920" y="124" text-anchor="end" font-size="20" letter-spacing="4" opacity="0.55">2022</text>
   </g>
 
-  <!-- Vertical tibeb stripe on left edge -->
-  <line x1="78" y1="180" x2="78" y2="1080" stroke="#162018" stroke-width="1" opacity="0.4"/>
-  <rect x="80" y="180" width="40" height="900" fill="url(#fin-tibeb-v)"/>
-  <line x1="122" y1="180" x2="122" y2="1080" stroke="#162018" stroke-width="1" opacity="0.4"/>
-
-  <!-- Vertical tibeb stripe on right edge (mirrored) -->
-  <line x1="900" y1="180" x2="900" y2="1080" stroke="#162018" stroke-width="1" opacity="0.4"/>
-  <rect x="902" y="180" width="40" height="900" fill="url(#fin-tibeb-v)"/>
-  <line x1="944" y1="180" x2="944" y2="1080" stroke="#162018" stroke-width="1" opacity="0.4"/>
-
-  <!-- Title -->
-  <g fill="#162018" font-family="Georgia, Cambria, 'Times New Roman', serif" font-style="italic">
-    <text x="512" y="580" text-anchor="middle" font-size="170" letter-spacing="-3">Finance</text>
-    <text x="512" y="740" text-anchor="middle" font-size="84" letter-spacing="1" opacity="0.6">&amp; Accounting</text>
+  <!-- Coptic-style manuscript marker — small Ethiopian cross at top-left of the page block -->
+  <g transform="translate(104 360)" stroke="#142019" fill="none" stroke-width="1.5">
+    <!-- Central diamond -->
+    <polygon points="0,-12 12,0 0,12 -12,0" fill="#142019"/>
+    <!-- Arms -->
+    <line x1="0" y1="-12" x2="0" y2="-30"/>
+    <line x1="0" y1="12" x2="0" y2="30"/>
+    <line x1="-12" y1="0" x2="-30" y2="0"/>
+    <line x1="12" y1="0" x2="30" y2="0"/>
+    <!-- Terminal caps -->
+    <line x1="-6" y1="-30" x2="6" y2="-30"/>
+    <line x1="-6" y1="30" x2="6" y2="30"/>
+    <line x1="-30" y1="-6" x2="-30" y2="6"/>
+    <line x1="30" y1="-6" x2="30" y2="6"/>
   </g>
 
-  <!-- Subtle horizontal ledger lines beneath title -->
-  <g stroke="#162018" stroke-width="1" opacity="0.35">
-    <line x1="280" y1="820" x2="744" y2="820"/>
-    <line x1="280" y1="850" x2="744" y2="850"/>
-    <line x1="280" y1="880" x2="744" y2="880"/>
+  <!-- Title — left-aligned like a manuscript opening -->
+  <g fill="#142019" font-family="Georgia, Cambria, 'Times New Roman', serif" font-style="italic">
+    <text x="104" y="500" font-size="180" letter-spacing="-4">Finance</text>
+    <text x="104" y="600" font-size="88" letter-spacing="0" opacity="0.55">&amp; Accounting</text>
   </g>
 
-  <!-- Bottom tibeb -->
-  <line x1="0" y1="1098" x2="1024" y2="1098" stroke="#162018" stroke-width="1" opacity="0.55"/>
-  <rect x="0" y="1100" width="1024" height="16" fill="url(#fin-tibeb-h)"/>
-  <line x1="0" y1="1118" x2="1024" y2="1118" stroke="#162018" stroke-width="1" opacity="0.55"/>
+  <!-- Ledger rules — quiet, evenly spaced -->
+  <g stroke="#142019" stroke-width="0.8" opacity="0.4">
+    <line x1="104" y1="720" x2="920" y2="720"/>
+    <line x1="104" y1="770" x2="920" y2="770"/>
+    <line x1="104" y1="820" x2="920" y2="820"/>
+    <line x1="104" y1="870" x2="920" y2="870"/>
+    <line x1="104" y1="920" x2="920" y2="920"/>
+    <line x1="104" y1="970" x2="920" y2="970"/>
+    <line x1="104" y1="1020" x2="920" y2="1020"/>
+  </g>
 
-  <!-- Footer eyebrows -->
-  <g fill="#162018" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
-    <text x="64" y="1190" font-size="20" letter-spacing="3" opacity="0.7">NYLOS</text>
-    <text x="960" y="1190" text-anchor="end" font-size="20" letter-spacing="3" opacity="0.7">LEDGER&#160;·&#160;COMPLIANCE</text>
+  <!-- Ledger marginalia — a single italic note suggesting page balance -->
+  <text x="920" y="1075" text-anchor="end" fill="#142019" font-family="Georgia, Cambria, 'Times New Roman', serif" font-style="italic" font-size="22" opacity="0.55">— balanced.</text>
+
+  <!-- Bottom eyebrow -->
+  <g fill="#142019" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="104" y="1180" font-size="18" letter-spacing="3" opacity="0.6">NYLOS</text>
+    <text x="920" y="1180" text-anchor="end" font-size="18" letter-spacing="3" opacity="0.6">LEDGER&#160;·&#160;COMPLIANCE</text>
   </g>
 </svg>

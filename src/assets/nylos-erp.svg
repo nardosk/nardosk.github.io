@@ -1,52 +1,42 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1280" preserveAspectRatio="xMidYMid slice" role="img" aria-label="NYLOS ERP cover">
-  <defs>
-    <pattern id="erp-tibeb" x="0" y="0" width="32" height="16" patternUnits="userSpaceOnUse">
-      <polygon points="0,16 16,0 32,16" fill="#1c1410" opacity="0.55"/>
-    </pattern>
-  </defs>
-  <rect width="1024" height="1280" fill="#e0d2b8"/>
+  <rect width="1024" height="1280" fill="#e3d4b6"/>
 
-  <!-- Top tibeb band -->
-  <line x1="0" y1="138" x2="1024" y2="138" stroke="#1c1410" stroke-width="1" opacity="0.55"/>
-  <rect x="0" y="140" width="1024" height="16" fill="url(#erp-tibeb)"/>
-  <line x1="0" y1="158" x2="1024" y2="158" stroke="#1c1410" stroke-width="1" opacity="0.55"/>
+  <!-- Inset frame -->
+  <rect x="64" y="64" width="896" height="1152" fill="none" stroke="#1f1612" stroke-width="1" opacity="0.25"/>
 
-  <!-- Eyebrows -->
-  <g fill="#1c1410" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
-    <text x="64" y="100" font-size="22" letter-spacing="4">01 — ENTERPRISE</text>
-    <text x="960" y="100" text-anchor="end" font-size="22" letter-spacing="4" opacity="0.6">2024</text>
+  <!-- Top eyebrow -->
+  <g fill="#1f1612" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="104" y="124" font-size="20" letter-spacing="4">01 — ENTERPRISE</text>
+    <text x="920" y="124" text-anchor="end" font-size="20" letter-spacing="4" opacity="0.55">2024</text>
   </g>
 
-  <!-- Title -->
-  <text x="512" y="640" text-anchor="middle" fill="#1c1410" font-family="Georgia, Cambria, 'Times New Roman', serif" font-style="italic" font-size="240" letter-spacing="-6">ERP</text>
+  <!-- Title — anchored, not centred -->
+  <g fill="#1f1612" font-family="Georgia, Cambria, 'Times New Roman', serif">
+    <text x="104" y="620" font-style="italic" font-size="280" letter-spacing="-10">ERP</text>
+    <text x="104" y="680" font-style="italic" font-size="34" letter-spacing="0" opacity="0.55">the ten-module ledger</text>
+  </g>
 
-  <!-- 10 module diamonds in a row beneath the title -->
-  <g stroke="#1c1410" stroke-width="1.5" fill="none" opacity="0.85">
-    <g transform="translate(232 800)">
-      <polygon points="0,0 18,18 0,36 -18,18"/>
-      <polygon points="64,0 82,18 64,36 46,18"/>
-      <polygon points="128,0 146,18 128,36 110,18"/>
-      <polygon points="192,0 210,18 192,36 174,18"/>
-      <polygon points="256,0 274,18 256,36 238,18"/>
-      <polygon points="320,0 338,18 320,36 302,18"/>
-      <polygon points="384,0 402,18 384,36 366,18"/>
-      <polygon points="448,0 466,18 448,36 430,18"/>
-      <polygon points="512,0 530,18 512,36 494,18"/>
-      <polygon points="576,0 594,18 576,36 558,18" fill="#1c1410" fill-opacity="0.9"/>
+  <!-- 10 module marks — hairline diamonds in a single row, last filled -->
+  <g transform="translate(104 880)">
+    <line x1="0" y1="20" x2="816" y2="20" stroke="#1f1612" stroke-width="0.6" opacity="0.35"/>
+    <g stroke="#1f1612" stroke-width="1.2" fill="none">
+      <polygon points="20,4 36,20 20,36 4,20"/>
+      <polygon points="108,4 124,20 108,36 92,20"/>
+      <polygon points="196,4 212,20 196,36 180,20"/>
+      <polygon points="284,4 300,20 284,36 268,20"/>
+      <polygon points="372,4 388,20 372,36 356,20"/>
+      <polygon points="460,4 476,20 460,36 444,20"/>
+      <polygon points="548,4 564,20 548,36 532,20"/>
+      <polygon points="636,4 652,20 636,36 620,20"/>
+      <polygon points="724,4 740,20 724,36 708,20"/>
+      <polygon points="812,4 828,20 812,36 796,20" fill="#1f1612"/>
     </g>
+    <text x="0" y="80" fill="#1f1612" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16" letter-spacing="5" opacity="0.55">ONE&#160;OF&#160;TEN&#160;·&#160;TEN&#160;OF&#160;TEN</text>
   </g>
 
-  <!-- Caption under diamonds -->
-  <text x="512" y="900" text-anchor="middle" fill="#1c1410" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18" letter-spacing="6" opacity="0.7">TEN&#160;&#160;MODULES&#160;&#160;ONE&#160;&#160;LEDGER</text>
-
-  <!-- Bottom tibeb band -->
-  <line x1="0" y1="1098" x2="1024" y2="1098" stroke="#1c1410" stroke-width="1" opacity="0.55"/>
-  <rect x="0" y="1100" width="1024" height="16" fill="url(#erp-tibeb)"/>
-  <line x1="0" y1="1118" x2="1024" y2="1118" stroke="#1c1410" stroke-width="1" opacity="0.55"/>
-
-  <!-- Footer eyebrows -->
-  <g fill="#1c1410" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
-    <text x="64" y="1190" font-size="20" letter-spacing="3" opacity="0.7">NYLOS</text>
-    <text x="960" y="1190" text-anchor="end" font-size="20" letter-spacing="3" opacity="0.7">ADDIS&#160;ABABA</text>
+  <!-- Bottom eyebrow -->
+  <g fill="#1f1612" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="104" y="1180" font-size="18" letter-spacing="3" opacity="0.6">NYLOS</text>
+    <text x="920" y="1180" text-anchor="end" font-size="18" letter-spacing="3" opacity="0.6">ADDIS&#160;ABABA</text>
   </g>
 </svg>

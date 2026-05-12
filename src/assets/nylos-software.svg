@@ -1,77 +1,48 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1280" preserveAspectRatio="xMidYMid slice" role="img" aria-label="NYLOS Software cover">
-  <defs>
-    <pattern id="ny-tibeb" x="0" y="0" width="32" height="16" patternUnits="userSpaceOnUse">
-      <polygon points="0,16 16,0 32,16" fill="#14141c" opacity="0.55"/>
-    </pattern>
-  </defs>
-  <rect width="1024" height="1280" fill="#b8b5c0"/>
+  <rect width="1024" height="1280" fill="#b2afb8"/>
 
-  <!-- Top tibeb -->
-  <line x1="0" y1="138" x2="1024" y2="138" stroke="#14141c" stroke-width="1" opacity="0.55"/>
-  <rect x="0" y="140" width="1024" height="16" fill="url(#ny-tibeb)"/>
-  <line x1="0" y1="158" x2="1024" y2="158" stroke="#14141c" stroke-width="1" opacity="0.55"/>
+  <!-- Inset frame -->
+  <rect x="64" y="64" width="896" height="1152" fill="none" stroke="#14131c" stroke-width="1" opacity="0.25"/>
 
-  <!-- Eyebrows -->
-  <g fill="#14141c" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
-    <text x="64" y="100" font-size="22" letter-spacing="4">06 — COMPANY</text>
-    <text x="960" y="100" text-anchor="end" font-size="22" letter-spacing="4" opacity="0.6">2023</text>
+  <!-- Top eyebrow -->
+  <g fill="#14131c" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="104" y="124" font-size="20" letter-spacing="4">06 — COMPANY</text>
+    <text x="920" y="124" text-anchor="end" font-size="20" letter-spacing="4" opacity="0.55">2023</text>
   </g>
 
-  <!-- Stylised Ethiopian Orthodox cross — geometric, centred at 512, 560 -->
-  <g transform="translate(512 560)" stroke="#14141c" fill="none">
-    <!-- Outer ring guide -->
-    <circle r="220" stroke-width="1" opacity="0.25"/>
-    <circle r="160" stroke-width="1" opacity="0.35"/>
-    <!-- Central diamond -->
-    <polygon points="0,-50 50,0 0,50 -50,0" fill="#14141c" fill-opacity="0.9" stroke-width="0"/>
-    <!-- 4 arms (square frames) -->
-    <g stroke-width="3">
-      <!-- top arm -->
-      <line x1="0" y1="-50" x2="0" y2="-110"/>
-      <polygon points="0,-110 28,-138 0,-166 -28,-138"/>
-      <line x1="0" y1="-166" x2="0" y2="-200"/>
-      <line x1="-30" y1="-200" x2="30" y2="-200"/>
-      <!-- bottom -->
-      <line x1="0" y1="50" x2="0" y2="110"/>
-      <polygon points="0,110 28,138 0,166 -28,138"/>
-      <line x1="0" y1="166" x2="0" y2="200"/>
-      <line x1="-30" y1="200" x2="30" y2="200"/>
-      <!-- left -->
-      <line x1="-50" y1="0" x2="-110" y2="0"/>
-      <polygon points="-110,0 -138,-28 -166,0 -138,28"/>
-      <line x1="-166" y1="0" x2="-200" y2="0"/>
-      <line x1="-200" y1="-30" x2="-200" y2="30"/>
-      <!-- right -->
-      <line x1="50" y1="0" x2="110" y2="0"/>
-      <polygon points="110,0 138,-28 166,0 138,28"/>
-      <line x1="166" y1="0" x2="200" y2="0"/>
-      <line x1="200" y1="-30" x2="200" y2="30"/>
-    </g>
-    <!-- Diagonal arms (smaller) — meskel cross variant -->
-    <g stroke-width="2" opacity="0.65">
-      <line x1="36" y1="-36" x2="100" y2="-100"/>
-      <line x1="-36" y1="-36" x2="-100" y2="-100"/>
-      <line x1="36" y1="36" x2="100" y2="100"/>
-      <line x1="-36" y1="36" x2="-100" y2="100"/>
-      <circle cx="100" cy="-100" r="6" fill="#14141c" stroke="none"/>
-      <circle cx="-100" cy="-100" r="6" fill="#14141c" stroke="none"/>
-      <circle cx="100" cy="100" r="6" fill="#14141c" stroke="none"/>
-      <circle cx="-100" cy="100" r="6" fill="#14141c" stroke="none"/>
+  <!--
+    Stepped Greek cross silhouette inspired by Bet Giyorgis (Lalibela).
+    A single bold, confident filled path with four bead terminals.
+  -->
+  <g transform="translate(512 560)" fill="#14131c">
+    <!-- Outer halo, hairline -->
+    <circle r="280" fill="none" stroke="#14131c" stroke-width="1" opacity="0.2"/>
+
+    <!-- Stepped cross -->
+    <path d="M -40 -200 L 40 -200 L 40 -100 L 100 -100 L 100 -40 L 200 -40 L 200 40 L 100 40 L 100 100 L 40 100 L 40 200 L -40 200 L -40 100 L -100 100 L -100 40 L -200 40 L -200 -40 L -100 -40 L -100 -100 L -40 -100 Z"/>
+
+    <!-- Bead terminals at the four arm tips -->
+    <circle cx="0" cy="-225" r="6"/>
+    <circle cx="0" cy="225" r="6"/>
+    <circle cx="-225" cy="0" r="6"/>
+    <circle cx="225" cy="0" r="6"/>
+
+    <!-- Subtle diagonal rays inside the halo — Meskel star feel -->
+    <g stroke="#14131c" stroke-width="1" opacity="0.25" fill="none">
+      <line x1="-155" y1="-155" x2="-198" y2="-198"/>
+      <line x1="155" y1="-155" x2="198" y2="-198"/>
+      <line x1="-155" y1="155" x2="-198" y2="198"/>
+      <line x1="155" y1="155" x2="198" y2="198"/>
     </g>
   </g>
 
-  <!-- Wordmark -->
-  <text x="512" y="950" text-anchor="middle" fill="#14141c" font-family="Georgia, Cambria, 'Times New Roman', serif" font-size="160" letter-spacing="14">NYLOS</text>
-  <text x="512" y="1000" text-anchor="middle" fill="#14141c" font-family="Georgia, Cambria, 'Times New Roman', serif" font-style="italic" font-size="32" letter-spacing="3" opacity="0.65">a software studio</text>
+  <!-- Wordmark — formal serif (not italic) for the company name -->
+  <text x="512" y="980" text-anchor="middle" fill="#14131c" font-family="Georgia, Cambria, 'Times New Roman', serif" font-size="160" letter-spacing="16">NYLOS</text>
+  <text x="512" y="1030" text-anchor="middle" fill="#14131c" font-family="Georgia, Cambria, 'Times New Roman', serif" font-style="italic" font-size="30" letter-spacing="3" opacity="0.55">a software studio</text>
 
-  <!-- Bottom tibeb -->
-  <line x1="0" y1="1098" x2="1024" y2="1098" stroke="#14141c" stroke-width="1" opacity="0.55"/>
-  <rect x="0" y="1100" width="1024" height="16" fill="url(#ny-tibeb)"/>
-  <line x1="0" y1="1118" x2="1024" y2="1118" stroke="#14141c" stroke-width="1" opacity="0.55"/>
-
-  <!-- Footer eyebrows -->
-  <g fill="#14141c" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
-    <text x="64" y="1190" font-size="20" letter-spacing="3" opacity="0.7">EST. MMXXIII</text>
-    <text x="960" y="1190" text-anchor="end" font-size="20" letter-spacing="3" opacity="0.7">ADDIS&#160;ABABA</text>
+  <!-- Bottom eyebrow -->
+  <g fill="#14131c" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="104" y="1180" font-size="18" letter-spacing="3" opacity="0.6">EST. MMXXIII</text>
+    <text x="920" y="1180" text-anchor="end" font-size="18" letter-spacing="3" opacity="0.6">ADDIS&#160;ABABA</text>
   </g>
 </svg>
