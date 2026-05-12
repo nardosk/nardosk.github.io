@@ -1,64 +1,48 @@
 import { useEffect, useState } from "react";
-import { Sun, Moon, Monitor } from "lucide-react";
+import { Sun, Moon } from "lucide-react";
 
-type Mode = "system" | "light" | "dark";
-const order: Mode[] = ["system", "light", "dark"];
+type Mode = "light" | "dark";
 const STORAGE_KEY = "theme";
 
-function readStored(): Mode {
+function resolveInitialMode(): Mode {
   try {
     const v = localStorage.getItem(STORAGE_KEY);
     if (v === "light" || v === "dark") return v;
   } catch {}
-  return "system";
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
 }
 
 function applyTheme(mode: Mode) {
-  const isDark =
-    mode === "dark" ||
-    (mode === "system" &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches);
-  document.documentElement.classList.toggle("dark", isDark);
+  document.documentElement.classList.toggle("dark", mode === "dark");
 }
 
 export function ThemeToggle() {
-  const [mode, setMode] = useState<Mode>("system");
+  const [mode, setMode] = useState<Mode>("light");
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMode(readStored());
+    setMode(resolveInitialMode());
     setMounted(true);
-
-    const m = window.matchMedia("(prefers-color-scheme: dark)");
-    const onSystemChange = () => {
-      if (readStored() === "system") applyTheme("system");
-    };
-    m.addEventListener?.("change", onSystemChange);
-    return () => m.removeEventListener?.("change", onSystemChange);
   }, []);
 
-  const cycle = () => {
-    const next = order[(order.indexOf(mode) + 1) % order.length];
+  const toggle = () => {
+    const next: Mode = mode === "dark" ? "light" : "dark";
     try {
-      if (next === "system") localStorage.removeItem(STORAGE_KEY);
-      else localStorage.setItem(STORAGE_KEY, next);
+      localStorage.setItem(STORAGE_KEY, next);
     } catch {}
     setMode(next);
     applyTheme(next);
   };
 
-  const label =
-    mode === "system"
-      ? "Theme: system"
-      : mode === "dark"
-        ? "Theme: dark"
-        : "Theme: light";
-  const Icon = mode === "system" ? Monitor : mode === "dark" ? Moon : Sun;
+  const label = mode === "dark" ? "Switch to light theme" : "Switch to dark theme";
+  const Icon = mode === "dark" ? Sun : Moon;
 
   return (
     <button
       type="button"
-      onClick={cycle}
+      onClick={toggle}
       aria-label={label}
       title={label}
       className="inline-flex items-center justify-center size-9 rounded-full hover:bg-foreground/5 transition-colors"
