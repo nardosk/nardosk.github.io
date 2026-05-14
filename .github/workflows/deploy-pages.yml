@@ -4,12 +4,12 @@ name: Deploy to GitHub Pages
 # Cloudflare plugin and crawls in-page links to emit static HTML for every route),
 # then publishes dist/client/ to GitHub Pages.
 #
-# Caveats:
-#   - The contact form uses a TanStack server function (sendContactMessage) that has
-#     no runtime on Pages. The form will POST to a non-existent endpoint and toast an
-#     error. Replace with a mailto link, Formspree, or proxy through a Worker.
-#   - For a custom domain (e.g. nardos.et), add a file at public/CNAME containing
-#     just the bare domain — Vite copies public/* into dist/client/ during build.
+# The contact form posts to the Resend-backed Cloudflare Worker in worker/. Set the
+# VITE_CONTACT_ENDPOINT repo secret to the deployed Worker URL so it gets baked into
+# the static bundle at build time.
+#
+# Caveat: for a custom domain (e.g. nardos.et), add a file at public/CNAME containing
+# just the bare domain — Vite copies public/* into dist/client/ during build.
 
 on:
   push:
@@ -43,6 +43,7 @@ jobs:
       - name: Build (prerender + client only)
         env:
           BUILD_TARGET: pages
+          VITE_CONTACT_ENDPOINT: ${{ secrets.VITE_CONTACT_ENDPOINT }}
         run: npm run build
 
       - name: SPA fallback (404.html mirrors the prerendered shell)

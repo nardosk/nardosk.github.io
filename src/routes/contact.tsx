@@ -2,14 +2,14 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { useServerFn } from "@tanstack/react-start";
 import { toast } from "sonner";
 import { Loader2, ArrowUpRight } from "lucide-react";
 
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { sendContactMessage } from "@/lib/contact.functions";
+
+const CONTACT_ENDPOINT = import.meta.env.VITE_CONTACT_ENDPOINT;
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -48,7 +48,6 @@ const MAPS_URL =
   "https://www.google.com/maps/search/?api=1&query=Kasanchis%2C+Addis+Ababa%2C+Ethiopia";
 
 function ContactPage() {
-  const sendFn = useServerFn(sendContactMessage);
   const {
     register,
     handleSubmit,
@@ -60,17 +59,28 @@ function ContactPage() {
   });
 
   const onSubmit = async (values: FormValues) => {
+    if (!CONTACT_ENDPOINT) {
+      toast.error("Contact form is not configured.");
+      return;
+    }
     try {
-      const result = await sendFn({ data: values });
-      if (result.success) {
+      const res = await fetch(CONTACT_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+      const result = (await res.json().catch(() => null)) as
+        | { success: boolean; error?: string }
+        | null;
+      if (res.ok && result?.success) {
         toast.success("Message sent. Talk soon.");
         reset();
       } else {
-        toast.error(result.error ?? "Something went wrong.");
+        toast.error(result?.error ?? "Something went wrong.");
       }
     } catch (err) {
       console.error(err);
-      toast.error("Something went wrong. Please try again.");
+      toast.error("Network error. Please try again.");
     }
   };
 

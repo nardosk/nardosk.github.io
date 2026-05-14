@@ -1,0 +1,13 @@
+{
+  "$schema": "../node_modules/wrangler/config-schema.json",
+  "name": "nardos-contact",
+  "main": "index.ts",
+  "compatibility_date": "2025-09-24",
+  "vars": {
+    "CONTACT_TO_EMAIL": "contact@nardos.et",
+    "CONTACT_FROM_EMAIL": "Portfolio <onboarding@resend.dev>",
+    "ALLOWED_ORIGINS": "https://nardos.et,https://www.nardos.et"
+  }
+  // Secrets (set via `wrangler secret put` from the worker/ directory):
+  //   - RESEND_API_KEY
+}

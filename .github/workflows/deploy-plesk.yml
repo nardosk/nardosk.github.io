@@ -6,11 +6,11 @@ name: Build and publish deploy branch (nardos.et via Plesk Git)
 # Git integration on nardos.et tracks that branch and pulls it straight into
 # ~/httpdocs/, so the shared host never needs to run Node or have SSH access.
 #
-# Caveats:
-#   - The contact form uses a TanStack server function (sendContactMessage) that
-#     has no runtime on a static deploy. Replace with mailto:, Formspree, or proxy
-#     through a small service before nardos.et goes public.
-#   - The `deploy` branch is build-output only; never commit source there directly.
+# The contact form posts to the Resend-backed Cloudflare Worker in worker/. Set
+# the VITE_CONTACT_ENDPOINT repo secret to the deployed Worker URL so it gets
+# baked into the static bundle at build time.
+#
+# Caveat: the `deploy` branch is build-output only; never commit source there directly.
 
 on:
   push:
@@ -41,6 +41,7 @@ jobs:
       - name: Build (prerender + client only)
         env:
           BUILD_TARGET: pages
+          VITE_CONTACT_ENDPOINT: ${{ secrets.VITE_CONTACT_ENDPOINT }}
         run: npm run build
 
       - name: SPA fallback (404.html mirrors the prerendered shell)
