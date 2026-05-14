@@ -1,0 +1,57 @@
+name: Build and publish deploy branch (nardos.et via Plesk Git)
+
+# Builds the TanStack Start app with prerendering (BUILD_TARGET=pages disables the
+# Cloudflare plugin and crawls in-page links to emit static HTML for every route),
+# then commits dist/client/ to the `deploy` branch as plain static files. Plesk's
+# Git integration on nardos.et tracks that branch and pulls it straight into
+# ~/httpdocs/, so the shared host never needs to run Node or have SSH access.
+#
+# Caveats:
+#   - The contact form uses a TanStack server function (sendContactMessage) that
+#     has no runtime on a static deploy. Replace with mailto:, Formspree, or proxy
+#     through a small service before nardos.et goes public.
+#   - The `deploy` branch is build-output only; never commit source there directly.
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: deploy-plesk
+  cancel-in-progress: false
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build (prerender + client only)
+        env:
+          BUILD_TARGET: pages
+        run: npm run build
+
+      - name: SPA fallback (404.html mirrors the prerendered shell)
+        run: cp dist/client/index.html dist/client/404.html
+
+      - name: Publish built site to deploy branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: deploy
+          publish_dir: dist/client
+          user_name: github-actions[bot]
+          user_email: github-actions[bot]@users.noreply.github.com
+          commit_message: "deploy: build from ${{ github.sha }}"
