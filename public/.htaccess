@@ -1,15 +1,24 @@
 # Plesk / Apache config for the prerendered TanStack Start build.
+# - Disables Phusion Passenger; the Plesk domain has Node.js support enabled,
+#   so without this every non-file URL (e.g. /about, /assets/*.js) hits Passenger
+#   and returns 500 "Web application could not be started".
 # - Resolves clean URLs like /contact to /contact/index.html without a 301 to a trailing slash.
 # - Falls back to the prerendered shell (index.html) for any path that doesn't match a file,
 #   so the React Router can take over for unknown routes.
 # GitHub Pages ignores .htaccess; it relies on the 404.html fallback the workflow creates.
 
+<IfModule mod_passenger.c>
+  PassengerEnabled off
+</IfModule>
+
 RewriteEngine On
 
 # /contact -> /contact/index.html (and same for /about, /work/<slug>, etc.)
+# Skip URIs that already end in a slash; mod_dir's DirectoryIndex serves those.
+RewriteCond %{REQUEST_URI} !/$
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
-RewriteRule ^(.+?)/?$ /$1/index.html [L]
+RewriteCond %{REQUEST_FILENAME}/index.html -f
+RewriteRule ^ %{REQUEST_URI}/index.html [L]
 
 # SPA fallback: anything else goes to the prerendered shell.
 RewriteCond %{REQUEST_FILENAME} !-f
