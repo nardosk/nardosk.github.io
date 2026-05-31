@@ -1,0 +1,60 @@
+# Plesk / Apache config for the prerendered TanStack Start build.
+# - Disables Phusion Passenger; the Plesk domain has Node.js support enabled,
+#   so without this every non-file URL (e.g. /about, /assets/*.js) hits Passenger
+#   and returns 500 "Web application could not be started".
+# - Resolves clean URLs like /contact to /contact/index.html without a 301 to a trailing slash.
+# - Falls back to the prerendered shell (index.html) for any path that doesn't match a file,
+#   so the React Router can take over for unknown routes.
+# GitHub Pages ignores .htaccess; it relies on the 404.html fallback the workflow creates.
+
+<IfModule mod_passenger.c>
+  PassengerEnabled off
+</IfModule>
+
+RewriteEngine On
+
+# /contact -> /contact/index.html (and same for /about, /work/<slug>, etc.)
+# Skip URIs that already end in a slash; mod_dir's DirectoryIndex serves those.
+RewriteCond %{REQUEST_URI} !/$
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}/index.html -f
+RewriteRule ^ %{REQUEST_URI}/index.html [L]
+
+# SPA fallback: anything else goes to the prerendered shell.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L]
+
+# Ensure woff2 is served with the right type (some Plesk hosts lack the mapping),
+# so the cache rules below match and browsers don't sniff it.
+AddType font/woff2 .woff2
+
+# Compress text-like responses.
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml \
+    application/javascript application/json application/xml image/svg+xml
+</IfModule>
+
+# Cache static assets aggressively; Vite fingerprints JS/CSS filenames so a year
+# is safe. HTML is left uncached so each deploy is picked up immediately.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/x-icon "access plus 1 month"
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+# Mark fingerprinted build assets immutable so browsers never revalidate them.
+<IfModule mod_headers.c>
+  <FilesMatch "\.(?:js|css|woff2)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>
