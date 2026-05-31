@@ -24,3 +24,37 @@ RewriteRule ^ %{REQUEST_URI}/index.html [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.html [L]
+
+# Ensure woff2 is served with the right type (some Plesk hosts lack the mapping),
+# so the cache rules below match and browsers don't sniff it.
+AddType font/woff2 .woff2
+
+# Compress text-like responses.
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml \
+    application/javascript application/json application/xml image/svg+xml
+</IfModule>
+
+# Cache static assets aggressively; Vite fingerprints JS/CSS filenames so a year
+# is safe. HTML is left uncached so each deploy is picked up immediately.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/x-icon "access plus 1 month"
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+# Mark fingerprinted build assets immutable so browsers never revalidate them.
+<IfModule mod_headers.c>
+  <FilesMatch "\.(?:js|css|woff2)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>

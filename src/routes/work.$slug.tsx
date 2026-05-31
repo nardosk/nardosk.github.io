@@ -1,6 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { projects } from "@/lib/projects";
+import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/work/$slug")({
   loader: ({ params }) => {
@@ -8,21 +9,18 @@ export const Route = createFileRoute("/work/$slug")({
     if (!project) throw notFound();
     return { project };
   },
-  head: ({ loaderData }) => {
+  head: ({ loaderData, params }) => {
     if (!loaderData) return { meta: [] };
     const { project } = loaderData;
     const desc =
       project.summary ??
       project.description ??
       `${project.title} — ${project.category}.`;
-    return {
-      meta: [
-        { title: `${project.title} — Nardos K.` },
-        { name: "description", content: desc },
-        { property: "og:title", content: `${project.title} — Nardos K.` },
-        { property: "og:description", content: desc },
-      ],
-    };
+    return seo({
+      path: `/work/${params.slug}`,
+      title: `${project.title} — Nardos K.`,
+      description: desc,
+    });
   },
   component: ProjectPage,
 });

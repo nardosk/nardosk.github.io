@@ -13,6 +13,8 @@ import faviconUrl from "@/assets/favicon.ico";
 import { Toaster } from "@/components/ui/sonner";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
+import { useThemeMode } from "@/hooks/use-theme-mode";
+import { SITE_NAME, SITE_URL, OG_IMAGE } from "@/lib/seo";
 
 function NotFoundComponent() {
   return (
@@ -82,24 +84,39 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "Personal portfolio of Nardos K., a software engineer in Addis Ababa crafting calm, considered digital products.",
       },
-      { name: "author", content: "Nardos K." },
+      { name: "author", content: SITE_NAME },
       { name: "theme-color", content: "#1a1b1f" },
-      { property: "og:title", content: "Nardos K. — Software Engineer" },
-      {
-        property: "og:description",
-        content: "Personal portfolio of Nardos K., a software engineer crafting modern digital products.",
-      },
+      // Site-wide Open Graph / Twitter defaults. Per-route titles, descriptions,
+      // URLs and the canonical link are supplied via seo() and override these.
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: SITE_NAME },
+      { property: "og:locale", content: "en_US" },
+      { property: "og:image", content: OG_IMAGE },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: "Nardos K. — Software Engineer in Addis Ababa" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Nardos K. — Software Engineer" },
-      {
-        name: "twitter:description",
-        content: "Personal portfolio of Nardos K., a software engineer crafting modern digital products.",
-      },
+      { name: "twitter:image", content: OG_IMAGE },
     ],
     links: [
       { rel: "icon", type: "image/x-icon", href: faviconUrl },
       { rel: "stylesheet", href: appCss },
+      // Preload the display/serif faces used above the fold (the hero H1 is the
+      // LCP element) so text paints in-font without a swap flash.
+      {
+        rel: "preload",
+        href: "/fonts/inter-tight-900-latin.woff2",
+        as: "font",
+        type: "font/woff2",
+        crossOrigin: "anonymous",
+      },
+      {
+        rel: "preload",
+        href: "/fonts/instrument-serif-italic-latin.woff2",
+        as: "font",
+        type: "font/woff2",
+        crossOrigin: "anonymous",
+      },
     ],
   }),
   shellComponent: RootShell,
@@ -108,7 +125,40 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   errorComponent: ErrorComponent,
 });
 
-const colorSchemeBootstrap = `(function(){try{var s=null;try{s=localStorage.getItem('theme');}catch(e){}var d=s==='dark'?true:s==='light'?false:window.matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.classList.toggle('dark',d);}catch(e){}})();`;
+// Default to light; only go dark when the user has explicitly chosen it.
+const colorSchemeBootstrap = `(function(){try{var s=null;try{s=localStorage.getItem('theme');}catch(e){}document.documentElement.classList.toggle('dark',s==='dark');}catch(e){}})();`;
+
+// Person + WebSite structured data — helps search engines associate the site with
+// Nardos K. (knowledge panel / rich results). sameAs mirrors the footer socials.
+const structuredData = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Nardos K.",
+    url: SITE_URL,
+    image: OG_IMAGE,
+    jobTitle: "Software Engineer",
+    description:
+      "Software engineer based in Addis Ababa, Ethiopia, focused on desktop and web application development.",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Addis Ababa",
+      addressCountry: "ET",
+    },
+    sameAs: [
+      "https://www.linkedin.com/in/nardosk/",
+      "https://github.com/nardosk/",
+      "https://x.com/eaglopia",
+      "https://t.me/eaglopia",
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: SITE_NAME,
+    url: SITE_URL,
+  },
+]);
 
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
@@ -116,6 +166,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
       <head>
         <HeadContent />
         <script dangerouslySetInnerHTML={{ __html: colorSchemeBootstrap }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: structuredData }} />
       </head>
       <body>
         {children}
@@ -127,6 +178,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const themeMode = useThemeMode();
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -135,7 +187,7 @@ function RootComponent() {
         <Outlet />
       </main>
       <Footer />
-      <Toaster richColors position="top-right" theme="system" />
+      <Toaster richColors position="top-right" theme={themeMode} />
     </QueryClientProvider>
   );
 }

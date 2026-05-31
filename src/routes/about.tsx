@@ -1,23 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
 import portrait from "@/assets/about.jpg";
+import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/about")({
-  head: () => ({
-    meta: [
-      { title: "About — Nardos K." },
-      {
-        name: "description",
-        content:
-          "Nardos K., a software engineer based in Addis Ababa, Ethiopia, focused on desktop and web application development.",
-      },
-      { property: "og:title", content: "About — Nardos K." },
-      {
-        property: "og:description",
-        content:
-          "Addis Ababa-based software engineer with a focus on desktop and web application development.",
-      },
-    ],
-  }),
+  head: () =>
+    seo({
+      path: "/about",
+      title: "About — Nardos K.",
+      description:
+        "Nardos K., a software engineer based in Addis Ababa, Ethiopia, focused on desktop and web application development.",
+    }),
   component: AboutPage,
 });
 

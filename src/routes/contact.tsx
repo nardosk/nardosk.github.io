@@ -8,24 +8,17 @@ import { Loader2, ArrowUpRight } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { seo } from "@/lib/seo";
 
 const CONTACT_ENDPOINT = import.meta.env.VITE_CONTACT_ENDPOINT;
 
 export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: "Contact — Nardos K." },
-      {
-        name: "description",
-        content: "Get in touch with Nardos K. for projects, roles, or a quiet hello.",
-      },
-      { property: "og:title", content: "Contact — Nardos K." },
-      {
-        property: "og:description",
-        content: "Drop a message. I usually reply within a day or two.",
-      },
-    ],
-  }),
+  head: () =>
+    seo({
+      path: "/contact",
+      title: "Contact — Nardos K.",
+      description: "Get in touch with Nardos K. for projects, roles, or a quiet hello.",
+    }),
   component: ContactPage,
 });
 

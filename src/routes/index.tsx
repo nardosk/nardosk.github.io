@@ -1,24 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { projects } from "@/lib/projects";
+import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Nardos K. — Selected Work" },
-      {
-        name: "description",
-        content:
-          "Selected projects by Nardos K., a software engineer based in Addis Ababa, Ethiopia.",
-      },
-      { property: "og:title", content: "Nardos K. — Selected Work" },
-      {
-        property: "og:description",
-        content:
-          "Selected projects by Nardos K., a software engineer based in Addis Ababa, Ethiopia.",
-      },
-    ],
-  }),
+  head: () =>
+    seo({
+      path: "/",
+      title: "Nardos K. — Selected Work",
+      description:
+        "Selected projects by Nardos K., a software engineer based in Addis Ababa, Ethiopia.",
+    }),
   component: WorkPage,
 });
 

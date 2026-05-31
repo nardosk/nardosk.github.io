@@ -20,6 +20,9 @@ dist-ssr
 .wrangler/
 .dev.vars
 
+# Installer binaries (do not commit downloaded installers)
+*.exe
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
