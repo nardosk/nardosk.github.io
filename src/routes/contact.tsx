@@ -213,7 +213,7 @@ function ContactPage() {
               id="name"
               placeholder="Your name"
               autoComplete="name"
-              className="border-0 border-b border-foreground/15 rounded-none bg-transparent px-0 h-14 text-xl placeholder:text-muted-foreground/50 focus-visible:ring-0 focus-visible:border-foreground transition-colors"
+              className="border-0 border-b border-foreground/15 rounded-none bg-transparent px-4 h-14 text-xl placeholder:text-muted-foreground/50 focus-visible:ring-0 focus-visible:border-foreground transition-colors"
               {...register("name")}
             />
           </Field>
@@ -224,7 +224,7 @@ function ContactPage() {
               type="email"
               placeholder="you@domain.com"
               autoComplete="email"
-              className="border-0 border-b border-foreground/15 rounded-none bg-transparent px-0 h-14 text-xl placeholder:text-muted-foreground/50 focus-visible:ring-0 focus-visible:border-foreground transition-colors"
+              className="border-0 border-b border-foreground/15 rounded-none bg-transparent px-4 h-14 text-xl placeholder:text-muted-foreground/50 focus-visible:ring-0 focus-visible:border-foreground transition-colors"
               {...register("email")}
             />
           </Field>
@@ -234,7 +234,7 @@ function ContactPage() {
               id="message"
               rows={5}
               placeholder="Tell me a bit about your project…"
-              className="border-0 border-b border-foreground/15 rounded-none bg-transparent px-0 text-xl placeholder:text-muted-foreground/50 focus-visible:ring-0 focus-visible:border-foreground transition-colors resize-none"
+              className="border-0 border-b border-foreground/15 rounded-none bg-transparent px-4 text-xl placeholder:text-muted-foreground/50 focus-visible:ring-0 focus-visible:border-foreground transition-colors resize-none"
               {...register("message")}
             />
           </Field>
