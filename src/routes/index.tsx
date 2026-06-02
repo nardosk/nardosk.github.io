@@ -40,10 +40,10 @@ function WorkPage() {
       {/* Section heading */}
       <section className="border-t border-border pt-8 pb-10 sm:pt-10 sm:pb-14">
         <div className="flex items-baseline justify-between gap-4">
-          <p className="font-serif-italic text-muted-foreground text-lg sm:text-xl">
+          <h2 className="font-serif-italic text-muted-foreground text-lg sm:text-xl">
             {numberWords[total - 1] ?? total} works,
             <span className="text-foreground"> hand-picked.</span>
-          </p>
+          </h2>
           <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground tabular-nums">
             Index — {String(total).padStart(2, "0")}
           </p>
