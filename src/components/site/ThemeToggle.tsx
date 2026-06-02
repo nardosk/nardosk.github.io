@@ -9,7 +9,10 @@ function resolveInitialMode(): Mode {
     const v = localStorage.getItem(STORAGE_KEY);
     if (v === "light" || v === "dark") return v;
   } catch {}
-  // Default to light until the user explicitly picks a theme.
+  // No saved choice yet — follow the OS preference (matches the bootstrap in __root).
+  try {
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) return "dark";
+  } catch {}
   return "light";
 }
 

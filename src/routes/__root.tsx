@@ -125,8 +125,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   errorComponent: ErrorComponent,
 });
 
-// Default to light; only go dark when the user has explicitly chosen it.
-const colorSchemeBootstrap = `(function(){try{var s=null;try{s=localStorage.getItem('theme');}catch(e){}document.documentElement.classList.toggle('dark',s==='dark');}catch(e){}})();`;
+// Light-first: paint the cream theme on the first frame, then resolve the visitor's
+// preference (their saved choice, else the OS prefers-color-scheme) and switch to it.
+// The `theme-ready` class turns on the color transition so the switch reads as a smooth
+// change rather than a flash. Applied after two frames so light renders first.
+const colorSchemeBootstrap = `(function(){function pref(){var s=null;try{s=localStorage.getItem('theme');}catch(e){}if(s==='dark'||s==='light')return s;try{return matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}catch(e){}return 'light';}function apply(){var r=document.documentElement;r.classList.add('theme-ready');r.classList.toggle('dark',pref()==='dark');}try{requestAnimationFrame(function(){requestAnimationFrame(apply);});}catch(e){apply();}})();`;
 
 // Person + WebSite structured data — helps search engines associate the site with
 // Nardos K. (knowledge panel / rich results). sameAs mirrors the footer socials.

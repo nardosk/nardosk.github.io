@@ -160,6 +160,13 @@
     scroll-padding-top: var(--header-height);
   }
 
+  /* Smooth the light-first -> preferred-theme switch. Gated on `theme-ready` (added
+     by the bootstrap after the first paint) so the initial render isn't animated. */
+  html.theme-ready,
+  html.theme-ready body {
+    transition: background-color 0.4s ease, color 0.4s ease;
+  }
+
   ::selection {
     background-color: var(--color-accent);
     color: var(--color-accent-foreground);
